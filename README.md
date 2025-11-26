@@ -94,9 +94,9 @@ DIVIDE(
 ```
 ---
 
-#🖥 Power BI Report Pages
+# 🖥 Power BI Report Pages
 
-##1️⃣ Global Overview
+## 1️⃣ Global Overview
 
 Screenshot:
 '/screenshots/global-overview.png'
@@ -123,7 +123,7 @@ Includes:
 
 🎯 Purpose : Provide management with a complete performance snapshot.
 
-##2️⃣ Store Analysis
+## 2️⃣ Store Analysis
 
 Screenshot:
 '/screenshots/store-analysis.png'
@@ -140,7 +140,7 @@ Includes:
 
 🎯 Purpose : Deep-dive into each store’s strengths, weaknesses, and customer satisfaction effects.
 
-##3️⃣ Forecast Page
+## 3️⃣ Forecast Page
 
 Screenshot:
 '/screenshots/forecast-page.png'
@@ -167,7 +167,7 @@ Trend 3 Months (%)
 
 ---
 
-#🔮 Forecast Logic
+# 🔮 Forecast Logic
 
 This project uses two forecasting approaches:
 
@@ -191,7 +191,7 @@ Used for KPI cards.
 
 ---
 
-#💡 Key Insights
+# 💡 Key Insights
 
 - Revenue shows a moderate upward trend in the next quarter.
 
@@ -203,7 +203,7 @@ Used for KPI cards.
 
 ---
 
-#🛠 Tech Stack
+# 🛠 Tech Stack
 | Tool                 | Purpose                       |
 | -------------------- | ----------------------------- |
 | **Power BI Desktop** | Main analytics & visuals      |
@@ -214,7 +214,8 @@ Used for KPI cards.
 
 ---
 
-#📁 Repository Structure
+# 📁 Repository Structure
+
 Retail-Store-Performance-Forecast-PowerBI/
 │
 ├── data/
@@ -234,7 +235,7 @@ Retail-Store-Performance-Forecast-PowerBI/
 │
 └── README.md
 
-#🚀 How to Run This Project
+# 🚀 How to Run This Project
 
 1.** Clone the repository**
 git clone https://github.com/<your-username>/Retail-Store-Performance-Forecast-PowerBI.git
@@ -243,7 +244,7 @@ git clone https://github.com/<your-username>/Retail-Store-Performance-Forecast-P
 reports/PowerBI_Retail_Forecast.pbix
 
 
-#⭐ Future Enhancements
+# ⭐ Future Enhancements
 
 - Add Year-over-Year (YoY) revenue comparison
 
@@ -255,6 +256,6 @@ reports/PowerBI_Retail_Forecast.pbix
 
 - Automate refresh using Power BI Service
 
-#👩‍💻 Author
+# 👩‍💻 Author
 
 *Keshika Dabidin Audam*
