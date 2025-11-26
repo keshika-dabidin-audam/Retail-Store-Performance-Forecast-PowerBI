@@ -1,0 +1,16 @@
+store_id,store_name,city,region,staff_count
+1,Store Port-Louis,Port-Louis,North,11
+2,Store Curepipe,Curepipe,Central,24
+3,Store Quatre-Bornes,Quatre-Bornes,Central,19
+4,Store Ebene,Ebene,Central,15
+5,Store Rose-Hill,Rose-Hill,Central,12
+6,Store Vacoas,Vacoas,Central,11
+7,Store Grand-Baie,Grand-Baie,North,23
+8,Store Triolet,Triolet,North,15
+9,Store Mahebourg,Mahebourg,South,15
+10,Store Flic-en-Flac,Flic-en-Flac,West,8
+11,Store Tamarin,Tamarin,West,12
+12,Store Goodlands,Goodlands,North,7
+13,Store Phoenix,Phoenix,Central,6
+14,Store Bel-Air,Bel-Air,East,16
+15,Store Flacq,Flacq,East,10
