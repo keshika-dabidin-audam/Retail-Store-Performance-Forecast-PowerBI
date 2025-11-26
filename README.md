@@ -1,84 +1,80 @@
-📊 Retail Store Performance & Forecasting – Power BI Project
-📌 Project Overview
+# 📊 Retail Store Performance & Forecasting – Power BI Project
 
-This project is an end-to-end Business Intelligence (BI) solution built with Power BI to analyze and forecast the performance of a network of retail stores.
+## 📌 Project Overview  
+This project is an end-to-end **Business Intelligence (BI)** solution built with **Power BI** to analyze and forecast the performance of a network of retail stores.
 
-It combines:
+It integrates:
 
-Sales data
+- **Sales data**
+- **Store footfall**
+- **Customer satisfaction scores**
+- **A calendar table (DateTable)**
 
-Customer footfall
+…to produce:
 
-Satisfaction feedback
+- Executive KPIs  
+- Store-level deep-dive analysis  
+- Product category insights  
+- A forecasting page with trendline & uncertainty interval  
 
-Calendar intelligence
+The aim is to give business leaders a clear view of store performance and expected revenue evolution.
 
-…and transforms them into:
+---
 
-Executive-level KPIs
+# 🗂 Data Model & Architecture
 
-Store-level insights
+## ⭐ Star Schema
+The model is structured using a clean star schema with one fact table and multiple dimensions.
 
-Product category analysis
+### 🟦 Fact Table: `sales`
+Contains all daily transactions:
+- date  
+- store_id  
+- product  
+- category  
+- quantity  
+- revenue  
 
-Revenue forecasting with uncertainty bands
+### 🟨 Dimension Tables
+| Table | Description |
+|-------|-------------|
+| **stores** | Metadata: store name, city, region, staff_count |
+| **footfall** | Daily store visitors |
+| **feedback** | Satisfaction score per store/day |
+| **DateTable** | Calendar: Date, Year, Month, MonthName, YearMonth |
 
-The goal is to provide business leaders with a clear, interactive view of store performance and short-term revenue evolution.
+### 📌 Data Model Screenshot
+`/screenshots/data-model.png`
 
-🗂 Data Model & Architecture
-⭐ Star Schema
+---
 
-The model follows a clean star-schema to optimize DAX and filtering logic.
+# 📈 KPIs (Key Measures)
 
-Fact Table
-Table	Description
-sales	Contains all daily sales transactions: date, store, product, category, quantity, revenue
-Dimension Tables
-Table	Description
-stores	Metadata: store name, city, region, staff count
-footfall	Daily store visitors
-feedback	Satisfaction score (1–5) per store and date
-DateTable	Calendar table: Date, Year, Month, MonthName, YearMonth
-📌 Data Model Screenshot
+### **Sales KPIs**
+- Total Revenue  
+- Total Quantity Sold  
+- Total Visitors  
+- Conversion Rate (Units)  
+- Average Satisfaction  
 
-screenshots/data-model.png
-(Replace with your real path)
+### **Forecast KPIs**
+- Revenue Last 3 Months  
+- Projected Next 3 Months  
+- Trend 3 Months (%)  
 
-📈 Key Metrics (KPIs)
-Sales KPIs
+---
 
-Total Revenue
+# 🧮 Core DAX Measures
 
-Total Quantity Sold
-
-Total Visitors (Footfall)
-
-Conversion Rate (%)
-
-Quantity / Visitors
-
-Average Satisfaction
-
-Forecast KPIs
-
-Revenue Last 3 Months
-
-Projected Revenue Next 3 Months
-
-Trend 3 Months (%)
-
-Forecasted evolution based on DAX linear trend model
-
-🧮 DAX Measures (Core)
-Revenue Last 3 Months
+### Revenue Last 3 Months
+```DAX
 Revenue Last 3 Months =
 CALCULATE(
     [Total Revenue],
     DATESINPERIOD(DateTable[Date], MAX(DateTable[Date]), -3, MONTH)
 )
 
-Projected Next 3 Months
-Projected Next 3 Months =
+### Projected Next 3 Months =
 VAR LastMonth =
     CALCULATE([Total Revenue], DATEADD(DateTable[Date], -1, MONTH))
 VAR PrevMonth =
@@ -86,73 +82,73 @@ VAR PrevMonth =
 VAR Trend = DIVIDE(LastMonth - PrevMonth, PrevMonth)
 RETURN LastMonth * (1 + Trend)
 
-Trend 3 Months (%)
-Trend 3 Months (%) =
+### Trend 3 Months (%) =
 DIVIDE(
     [Projected Next 3 Months] - [Revenue Last 3 Months],
     [Revenue Last 3 Months]
 )
 
-🖥 Power BI Report Pages
-1️⃣ Global Overview
+#🖥 Power BI Report Pages
+##1️⃣ Global Overview
 
-Screenshot: screenshots/global-overview.png
-
-Includes:
-
-Total Revenue
-
-Total Quantity
-
-Total Visitors
-
-Conversion Rate (%)
-
-Average Satisfaction
-
-Revenue by Date (Line Chart)
-
-Top Stores by Revenue (Bar Chart)
-
-Region slicer
-
-Date range timeline
-
-🎯 Purpose
-
-Provide an executive snapshot for management.
-
-2️⃣ Store Analysis
-
-Screenshot: screenshots/store-analysis.png
+Screenshot:
+/screenshots/global-overview.png
 
 Includes:
 
-Store Name slicer
+-Total Revenue
 
-Revenue by Category
+- Total Quantity
 
-Satisfaction vs Revenue (Correlation scatter)
+- Total Visitors
 
-Daily performance table
+- Conversion Rate
 
-🎯 Purpose
+- Average Satisfaction
 
-Deep-dive into each store’s performance.
+- Revenue by Date (line chart)
 
-3️⃣ Forecast Page
+- Top Stores (bar chart)
 
-Screenshot: screenshots/forecast-page.png
+- Region slicer
+
+- Date timeline filter
+
+🎯 Purpose : Provide management with a complete performance snapshot.
+
+##2️⃣ Store Analysis
+
+Screenshot:
+/screenshots/store-analysis.png
 
 Includes:
 
-Revenue line chart with trendline
+- Store name slicer
 
-Power BI forecast model + confidence band
+- Revenue by product category
 
-Region slicer
+- Satisfaction vs Revenue scatter plot
 
-KPIs:
+- Daily performance table
+
+🎯 Purpose : Deep-dive into each store’s strengths, weaknesses, and customer satisfaction effects.
+
+##3️⃣ Forecast Page
+
+Screenshot:
+/screenshots/forecast-page.png
+
+Includes:
+
+  Revenue line chart
+
+- Trendline
+
+- Power BI forecast (confidence interval)
+
+- Region slicer
+
+- KPI cards:
 
 Revenue Last 3 Months
 
@@ -160,96 +156,89 @@ Projected Next 3 Months
 
 Trend 3 Months (%)
 
-🎯 Purpose
+🎯 Purpose : Predict short-term revenue evolution, detect early growth/decline trends.
 
-Predict short-term evolution for decision-making.
-
-🔮 Forecast Logic
+#🔮 Forecast Logic
 
 This project uses two forecasting approaches:
 
-1. Power BI Built-In Forecast
+1. **Power BI Built-In Forecast**
 
-Automatically detects seasonality
+Adds a prediction line and shaded confidence interval directly in the visual.
 
-Generates a prediction curve + confidence interval
+2. **Custom DAX Linear Trend Model**
 
-Applied directly on the line chart
+A transparent, easy-to-interpret approach:
 
-2. Custom DAX Forecast Model
+- Measure last month
 
-A simple linear trend based on the difference between the last 2 months:
+- Measure previous month
 
-If LastMonth > PrevMonth → upward trend
+- Compute growth
 
-Else → downward trend
+- Apply it forward
 
-This allows:
+Used for KPI cards.
 
-Cleaner KPI comparison
+#💡 Key Insights
 
-Transparent logic
+- Revenue shows a moderate upward trend in the next quarter.
 
-Region-based forecasting
+- West region remains the most stable and high-performing area.
 
-💡 Insights Extracted
+- Stores with higher satisfaction tend to generate higher revenue.
 
-Revenue trend indicates moderate growth (~2–4% depending on region).
+- Some high-footfall stores show low conversion → improvement potential.
 
-There is a positive correlation between satisfaction and revenue.
+#🛠 Tech Stack
+| Tool                 | Purpose                       |
+| -------------------- | ----------------------------- |
+| **Power BI Desktop** | Main analytics & visuals      |
+| **Power Query**      | ETL, cleaning, transformation |
+| **DAX**              | Calculations & KPIs           |
+| **Python**           | Data generation (optional)    |
+| **GitHub**           | Version control & portfolio   |
 
-The West region consistently outperforms others.
-
-Some stores with high footfall still underperform → optimization potential.
-
-Product categories differ strongly in revenue contribution.
-
-🛠 Tech Stack
-Tool	Usage
-Power BI Desktop	Dashboard & KPIs
-Power Query	Data preparation
-DAX	Measures and time intelligence
-Python	Data generation (optional)
-GitHub	Version control & portfolio
-📁 Repository Structure
+#📁 Repository Structure
 Retail-Store-Performance-Forecast-PowerBI/
 │
 ├── data/
+│   ├── sales.csv
+│   ├── stores.csv
+│   ├── footfall.csv
+│   ├── feedback.csv
+│   └── DateTable.csv
+│
 ├── reports/
+│   ├── PowerBI_Retail_Forecast.pbix
+│
+├── screenshots/
+│   ├── Screenshots.pdf
 ├── src/
-│   └── generate_data.py (optional)
+│   └── generate_data.py   # optional
 │
 └── README.md
 
-🚀 How to Run This Project
-
-Clone the repo:
-
+#🚀 How to Run This Project
+1.** Clone the repository**
 git clone https://github.com/<your-username>/Retail-Store-Performance-Forecast-PowerBI.git
 
-
-Open:
-
+2. **Open the Power BI file**
 reports/PowerBI_Retail_Forecast.pbix
 
 
-Ensure data paths are correct
+⭐ Future Enhancements
 
-Refresh the report
+- Add Year-over-Year (YoY) revenue comparison
 
-⭐ Future Improvements
+- Add Row Level Security (RLS) by region
 
-Add Year-over-Year (YoY) metrics
+- Integrate promotion or weather data to improve forecasting
 
-Add RLS (Row Level Security) per region
+- Build advanced predictive models using Python (Prophet, ARIMA)
 
-Include external data (weather, promotions)
+- Automate refresh using Power BI Service
 
-Use Python Prophet for advanced forecasting
+#👩‍💻 Author
 
-Automate data refresh with a pipeline
-
-👩‍💻 Author
-
-Keshika Dabidin Audam
-Data Analyst / Data Scientist – Mauritius 🇲🇺
+*Keshika Dabidin Audam*
