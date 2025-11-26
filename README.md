@@ -72,7 +72,7 @@ Revenue Last 3 Months =
 CALCULATE(
     [Total Revenue],
     DATESINPERIOD(DateTable[Date], MAX(DateTable[Date]), -3, MONTH)
-)
+)```
 
 ### Projected Next 3 Months =
 VAR LastMonth =
