@@ -216,6 +216,8 @@ Used for KPI cards.
 
 # 📁 Repository Structure
 
+
+```
 Retail-Store-Performance-Forecast-PowerBI/
 │
 ├── data/
@@ -234,6 +236,8 @@ Retail-Store-Performance-Forecast-PowerBI/
 │   └── generate_data.py   # optional
 │
 └── README.md
+```
+
 
 # 🚀 How to Run This Project
 
