@@ -90,10 +90,10 @@ RETURN LastMonth * (1 + Trend)
 DIVIDE(
     [Projected Next 3 Months] - [Revenue Last 3 Months],
     [Revenue Last 3 Months]
-)
-```
+)```
 ---
 #🖥 Power BI Report Pages
+
 ##1️⃣ Global Overview
 
 Screenshot:
@@ -162,7 +162,9 @@ Projected Next 3 Months
 Trend 3 Months (%)
 
 🎯 Purpose : Predict short-term revenue evolution, detect early growth/decline trends.
+
 ---
+
 #🔮 Forecast Logic
 
 This project uses two forecasting approaches:
@@ -184,7 +186,9 @@ A transparent, easy-to-interpret approach:
 - Apply it forward
 
 Used for KPI cards.
+
 ---
+
 #💡 Key Insights
 
 - Revenue shows a moderate upward trend in the next quarter.
@@ -194,7 +198,9 @@ Used for KPI cards.
 - Stores with higher satisfaction tend to generate higher revenue.
 
 - Some high-footfall stores show low conversion → improvement potential.
+
 ---
+
 #🛠 Tech Stack
 | Tool                 | Purpose                       |
 | -------------------- | ----------------------------- |
@@ -203,7 +209,9 @@ Used for KPI cards.
 | **DAX**              | Calculations & KPIs           |
 | **Python**           | Data generation (optional)    |
 | **GitHub**           | Version control & portfolio   |
+
 ---
+
 #📁 Repository Structure
 Retail-Store-Performance-Forecast-PowerBI/
 │
@@ -225,6 +233,7 @@ Retail-Store-Performance-Forecast-PowerBI/
 └── README.md
 
 #🚀 How to Run This Project
+
 1.** Clone the repository**
 git clone https://github.com/<your-username>/Retail-Store-Performance-Forecast-PowerBI.git
 
@@ -232,7 +241,7 @@ git clone https://github.com/<your-username>/Retail-Store-Performance-Forecast-P
 reports/PowerBI_Retail_Forecast.pbix
 
 
-⭐ Future Enhancements
+#⭐ Future Enhancements
 
 - Add Year-over-Year (YoY) revenue comparison
 
