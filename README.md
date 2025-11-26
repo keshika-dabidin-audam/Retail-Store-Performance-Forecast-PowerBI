@@ -90,8 +90,10 @@ RETURN LastMonth * (1 + Trend)
 DIVIDE(
     [Projected Next 3 Months] - [Revenue Last 3 Months],
     [Revenue Last 3 Months]
-)```
+)
+```
 ---
+
 #🖥 Power BI Report Pages
 
 ##1️⃣ Global Overview
