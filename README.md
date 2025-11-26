@@ -63,7 +63,7 @@ Contains all daily transactions:
 - Trend 3 Months (%)  
 
 ---
-
+---
 # 🧮 Core DAX Measures
 
 ### Revenue Last 3 Months
@@ -76,24 +76,28 @@ CALCULATE(
 ```
 
 ### Projected Next 3 Months =
+```DAX
 VAR LastMonth =
     CALCULATE([Total Revenue], DATEADD(DateTable[Date], -1, MONTH))
 VAR PrevMonth =
     CALCULATE([Total Revenue], DATEADD(DateTable[Date], -2, MONTH))
 VAR Trend = DIVIDE(LastMonth - PrevMonth, PrevMonth)
 RETURN LastMonth * (1 + Trend)
+```
 
 ### Trend 3 Months (%) =
+```DAX
 DIVIDE(
     [Projected Next 3 Months] - [Revenue Last 3 Months],
     [Revenue Last 3 Months]
 )
-
+```
+---
 #🖥 Power BI Report Pages
 ##1️⃣ Global Overview
 
 Screenshot:
-/screenshots/global-overview.png
+'/screenshots/global-overview.png'
 
 Includes:
 
@@ -120,7 +124,7 @@ Includes:
 ##2️⃣ Store Analysis
 
 Screenshot:
-/screenshots/store-analysis.png
+'/screenshots/store-analysis.png'
 
 Includes:
 
@@ -137,7 +141,7 @@ Includes:
 ##3️⃣ Forecast Page
 
 Screenshot:
-/screenshots/forecast-page.png
+'/screenshots/forecast-page.png'
 
 Includes:
 
@@ -158,7 +162,7 @@ Projected Next 3 Months
 Trend 3 Months (%)
 
 🎯 Purpose : Predict short-term revenue evolution, detect early growth/decline trends.
-
+---
 #🔮 Forecast Logic
 
 This project uses two forecasting approaches:
@@ -180,7 +184,7 @@ A transparent, easy-to-interpret approach:
 - Apply it forward
 
 Used for KPI cards.
-
+---
 #💡 Key Insights
 
 - Revenue shows a moderate upward trend in the next quarter.
@@ -190,7 +194,7 @@ Used for KPI cards.
 - Stores with higher satisfaction tend to generate higher revenue.
 
 - Some high-footfall stores show low conversion → improvement potential.
-
+---
 #🛠 Tech Stack
 | Tool                 | Purpose                       |
 | -------------------- | ----------------------------- |
@@ -199,7 +203,7 @@ Used for KPI cards.
 | **DAX**              | Calculations & KPIs           |
 | **Python**           | Data generation (optional)    |
 | **GitHub**           | Version control & portfolio   |
-
+---
 #📁 Repository Structure
 Retail-Store-Performance-Forecast-PowerBI/
 │
